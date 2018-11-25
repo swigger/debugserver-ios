@@ -158,5 +158,9 @@ dbgsrv64 : $(OBJS)
 	ldid -Sent2.xml $@.dbg
 	ldid -Sent2.xml $@
 
+install:
+	ssh jbios rm -f /usr/local/bin/dbgsrv64
+	scp dbgsrv64 jbios:/usr/local/bin/
+
 clean:
 	-@ rm -f $(OBJS)
