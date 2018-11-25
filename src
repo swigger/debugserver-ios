@@ -19,6 +19,7 @@ tools/debugserver/source/DNB.cpp
 tools/debugserver/source/MacOSX/Genealogy.cpp
 tools/debugserver/source/MacOSX/DarwinLog/LogFilterRegex.cpp
 source/Host/common/StringConvert.cpp
+source/Host/common/SocketAddress.cpp
 tools/debugserver/source/MacOSX/DarwinLog/LogMessageOsLog.cpp
 tools/debugserver/source/DNBBreakpoint.cpp
 tools/debugserver/source/DNBDataRef.cpp

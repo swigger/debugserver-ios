@@ -32,6 +32,7 @@ extern NSString* FBSOpenApplicationOptionKeyLSSequenceNumber;
 extern NSString* FBSOpenApplicationOptionKeyLSCacheGUID;
 extern NSString* FBSDebugOptionKeyDebugOnNextLaunch;
 extern NSString* FBSDebugOptionKeyCancelDebugOnNextLaunch;
+extern NSString* FBSOpenApplicationOptionKeyActivateSuspended;
 
 #endif
 

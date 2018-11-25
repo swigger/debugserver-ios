@@ -26,6 +26,7 @@ extern NSString* BKSOpenApplicationOptionKeyUnlockDevice;
 extern NSString* BKSOpenApplicationOptionKeyActivateForEvent;
 extern NSString* BKSDebugOptionKeyDebugOnNextLaunch;
 extern NSString* BKSDebugOptionKeyCancelDebugOnNextLaunch;
+extern NSString* BKSOpenApplicationOptionKeyActivateSuspended;
 
 #endif
 
