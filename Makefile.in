@@ -4,9 +4,9 @@ INCS+=-I$(INDIR)include -Iinc -Finc
 MACROS=-Wparentheses -DWITH_LOCKDOWN -DWITH_FBS -DWITH_BKS
 CFLAGS=$(INCS) $(MACROS)  -fno-objc-arc
 CXXFLAGS=$(INCS) $(MACROS) -fno-objc-arc -std=c++11
-LDFLAGS=-sectcreate __TEXT __info_plist info.plist -framework Foundation 
+LDFLAGS=-sectcreate __TEXT __info_plist info.plist -framework Foundation
 LDFLAGS+=-Finc -framework SpringBoardServices  -framework BackBoardServices -framework FrontBoardServices -framework MobileCoreServices -framework AssertionServices
-LDFLAGS+=-llockdown -lc++
+LDFLAGS+=-lcompression -llockdown -lc++
 
 CC=aarch64-apple-darwin-gcc
 
