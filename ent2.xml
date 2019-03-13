@@ -22,6 +22,8 @@
 	<true/>
 	<key>com.apple.frontboard.debugapplications</key>
 	<true/>
+	<key>com.apple.assertiond.app-state-monitor</key>
+	<true/>
 	<key>run-unsigned-code</key>
 	<true/>
 	<key>seatbelt-profiles</key>
