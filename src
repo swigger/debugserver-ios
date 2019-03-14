@@ -43,6 +43,9 @@ tools/debugserver/source/PseudoTerminal.cpp
 tools/debugserver/source/DNBArch.cpp
 tools/debugserver/source/MacOSX/DarwinLog/LogFilterExactMatch.cpp
 tools/debugserver/source/MacOSX/arm64/DNBArchImplARM64.cpp
-./debugserver_vers.c
-./dbgnub-migServer.c
-./dbgnub-migUser.c
+debugserver_vers.c
+dbgnub-migServer.c
+dbgnub-migUser.c
+allowdbg/fixdbg_init.c
+allowdbg/kern_utils.c
+allowdbg/kmem.c

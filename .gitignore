@@ -1,3 +1,4 @@
 *.o
+obj/
 dbgnub-mig*
 dbgsrv64*
