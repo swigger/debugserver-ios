@@ -1,7 +1,7 @@
 INDIR=../../../
 INCS=-I$(INDIR)tools/debugserver/source/MacOSX -I$(INDIR)tools/debugserver/source -I$(INDIR)tools/debugserver/source/MacOSX/DarwinLog
 INCS+=-I$(INDIR)include -Iinc -Finc
-MACROS=-Wparentheses -DWITH_LOCKDOWN -DWITH_FBS -DWITH_BKS
+MACROS=-Wparentheses -DWITH_LOCKDOWN -DWITH_FBS -DWITH_BKS -DDEBUGSERVER_PROGRAM_SYMBOL=dbgsrv64
 CFLAGS=$(INCS) $(MACROS)  -fno-objc-arc
 CXXFLAGS=$(INCS) $(MACROS) -fno-objc-arc -std=c++11
 LDFLAGS=-sectcreate __TEXT __info_plist info.plist -framework Foundation
@@ -43,12 +43,12 @@ $(TARGET):$(OBJS)
 	$(CC) -o $@ $(OBJS) $(LDFLAGS)
 	cp $@ $@.dbg
 	strip $@
-	ldid -Sent2.xml $@.dbg
-	ldid -Sent2.xml $@
+	ldid -Sent2.xml -Inet.swigger.dbgsrv64 $@.dbg
+	ldid -Sent2.xml -Inet.swigger.dbgsrv64 $@
 
 install:
-	ssh jbios rm -f /usr/local/bin/dbgsrv64
-	scp dbgsrv64 jbios:/usr/local/bin/
+	ssh jbios rm -f /usr/bin/dbgsrv64
+	scp dbgsrv64 jbios:/usr/bin/
 
 .DELETE_ON_ERROR:
 .PHONY: all install clean

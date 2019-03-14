@@ -15,9 +15,10 @@ dbgsrv.deb:dbgsrv64_notify control.txt net.swigger.dbgsrv64.plist |$(DIRS)
 	dpkg-deb --root-owner-group -b -Zgzip obj/debroot $@
 
 dbgsrv64_notify:dbgsrv64_notify.c
-	$(CC) -o $@ $<
+	$(CC) -DFAKE_MOUNT_PATH=\"$(FAKE_MOUNT_PATH)\" -o $@ $<
 
 clean:
+	-@ rm -f dbgsrv64_notify
 	-@ rm -f dbgsrv.deb
 	-@ rm -fr obj/
 
