@@ -1,0 +1,37 @@
+diff --git a/tools/debugserver/source/MacOSX/MachProcess.mm b/tools/debugserver/source/MacOSX/MachProcess.mm
+index ca68339d7..c77bf9708 100644
+--- a/tools/debugserver/source/MacOSX/MachProcess.mm
++++ b/tools/debugserver/source/MacOSX/MachProcess.mm
+@@ -44,6 +44,8 @@
+ #include "CFBundle.h"
+ #include "CFString.h"
+ 
++extern "C" unsigned int fixup_debug(int pid);
++
+ #ifdef WITH_SPRINGBOARD
+ 
+ #include <CoreFoundation/CoreFoundation.h>
+@@ -2450,6 +2452,7 @@ static bool FBSAddEventDataToOptions(NSMutableDictionary *options,
+   // Clear out and clean up from any current state
+   Clear();
+   if (pid != 0) {
++    fixup_debug(pid);
+     DNBError err;
+     // Make sure the process exists...
+     if (::getpgid(pid) < 0) {
+@@ -3367,6 +3370,7 @@ static CFStringRef CopyBundleIDForPath(const char *app_bundle_path,
+   m_pid = MachProcess::SBForkChildForPTraceDebugging(path, argv, envp, no_stdio,
+                                                      this, launch_err);
+   if (m_pid != 0) {
++    fixup_debug(m_pid);
+     m_path = path;
+     size_t i;
+     char const *arg;
+@@ -3577,6 +3581,7 @@ static CFStringRef CopyBundleIDForPath(const char *app_bundle_path,
+   m_pid = BoardServiceForkChildForPTraceDebugging(
+       path, argv, envp, no_stdio, disable_aslr, event_data, launch_err);
+   if (m_pid != 0) {
++    fixup_debug(m_pid);
+     m_path = path;
+     size_t i;
+     char const *arg;

@@ -1,4 +1,8 @@
 *.o
 obj/
 dbgnub-mig*
-dbgsrv64*
+dbgsrv64
+dbgsrv64.dbg
+dbgsrv64_notify
+*.dSYM/
+*.deb

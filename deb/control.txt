@@ -1,0 +1,9 @@
+Name: dbgsrv64 service
+Package: net.swigger.dbgsrv64
+Priority: optional
+Version: 0.0.1-1
+Architecture: iphoneos-arm
+Description: geek debugserver service for debugging retail apps.
+Maintainer: swigger
+Section: Utilities
+Tag: purpose::console, role::hacker

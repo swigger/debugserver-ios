@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowByProxy</key>
+	<true/>
+	<key>ExecuteAllowed</key>
+	<true/>
+	<key>Label</key>
+	<string>net.swigger.dbgsrv64</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/dbgsrv64</string>
+		<string>--lockdown</string>
+		<string>--launch=frontboard</string>
+	</array>
+	<key>UserName</key>
+	<string>root</string>
+</dict>
+</plist>
