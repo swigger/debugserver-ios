@@ -39,10 +39,11 @@ static uint64_t ull_val(CFDictionaryRef dict, CFStringRef key)
 	uint64_t val = strtoull(p, 0LL, 16);
 	return val;
 }
+
 #define _(x) ull_val(dict, CFSTR(x))
-static int init_offsets()
+static int init_offsets(const char * offs_fn)
 {
-	CFDictionaryRef dict = 	load_map("/jb/offsets.plist");
+	CFDictionaryRef dict = 	load_map(offs_fn);
 	if (!dict)
 	{
 		fprintf(stderr, "unable to load offsets!\n");
@@ -67,6 +68,10 @@ static int init_port()
 {
     mach_port_t tfp0 = MACH_PORT_NULL;
     kern_return_t err;
+	struct stat st_;
+	const char * offs_fn = "/jb/offsets.plist";
+	int val = stat(offs_fn, &st_);
+	if (val) /* Warning:offsets not found, skip. */return 0;
 
     err = host_get_special_port(mach_host_self(), 0, 4, &tfp0);
     if (!tfp0)
@@ -86,5 +91,5 @@ static int init_port()
     }
     kernel_slide            = kernel_base - 0xFFFFFFF007004000;
     DEBUGLOG("kern base: %llx, slide: %llx", kernel_base, kernel_slide);
-	return init_offsets();
+	return init_offsets(offs_fn);
 }

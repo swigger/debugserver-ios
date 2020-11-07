@@ -103,6 +103,7 @@ uint32_t get_csflags(int pid)
 
 uint32_t fixup_debug(int pid)
 {
+	if (offset_kernel_task == 0) return 0;
 	uint64_t proc = proc_find(pid);
 	if (proc == 0)
 	{
